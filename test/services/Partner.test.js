@@ -1,6 +1,5 @@
 const PartnerService = require("./../../lib/services/PartnerService");
 const reader = require("./../../lib/utils/Reader");
-
 const partners = reader.readJsonFile("./visualPartners.json");
 
 
@@ -29,5 +28,17 @@ describe("Pruebas de unidad servicio partner service",()=>{
         expect(students.length).toBe(27);
         
     });
+
+    test("2.- prueba funcion get students with cetification var",()=>{
+
+        const students=PartnerService.getStudentsWithCertificationV2(partners,false);
+        expect(students).not.toBeUndefined();
+        expect(students.length).toBe(22);
+
+    
+        
+    });
+
+    
   
 });
